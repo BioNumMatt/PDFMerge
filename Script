@@ -1,0 +1,22 @@
+import PyPDF2
+import os
+import pikepdf
+
+def compress_pdf(input_pdf, output_pdf):
+    """Compress the PDF using pikepdf"""
+    try:
+        # Open the input PDF and optimize (compress) it
+        with pikepdf.open(input_pdf) as pdf:
+            # Save the compressed PDF to the output file
+            pdf.save(output_pdf)
+        print(f'Compressed PDF saved as {output_pdf}')
+    except Exception as e:
+        print(f'Failed to compress PDF: {e}')
+
+if __name__ == "__main__":
+    # Specify the PDF file to compress
+    input_pdf = r"C:\Users\your-names\Desktop\Python\original_file.pdf"  # Input file path
+    output_pdf = r"C:\Users\your-name\Desktop\Python\compressed_file.pdf"  # Compressed output file path
+
+    # Call the function to compress the PDF
+    compress_pdf(input_pdf, output_pdf)
